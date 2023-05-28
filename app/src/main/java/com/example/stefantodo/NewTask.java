@@ -106,6 +106,7 @@ public class NewTask extends BottomSheetDialogFragment {
             }
         });
 
+
         setDueDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -151,6 +152,7 @@ public class NewTask extends BottomSheetDialogFragment {
                         taskMap.put("task", task);
                         taskMap.put("due", dueDate);
                         taskMap.put("status", 0);
+                        taskMap.put("isDone", 0);
                         taskMap.put("time", FieldValue.serverTimestamp());
 
                         firestore.collection("task").add(taskMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {

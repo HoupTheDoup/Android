@@ -71,6 +71,9 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.MyViewHolder>{
 
         holder.mCheckBox.setChecked(toBoolean(toDoModel.getStatus()));
 
+        holder.mIsDone.setChecked(toBoolean(toDoModel.getIsDone()));
+
+
 
 
         holder.mCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -83,6 +86,18 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.MyViewHolder>{
                 }
             }
         });
+
+        holder.mIsDone.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    firestore.collection("task").document(toDoModel.TaskId).update("isDone" , 1);
+                }else{
+                    firestore.collection("task").document(toDoModel.TaskId).update("isDone" , 0);
+                }
+            }
+        });
+
 
     }
 
@@ -100,12 +115,14 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.MyViewHolder>{
         TextView mDueDateTv;
         CheckBox mCheckBox;
 
+        CheckBox mIsDone;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
             mDueDateTv = itemView.findViewById(R.id.due_date_tv);
             mCheckBox = itemView.findViewById(R.id.mcheckbox);
-
+            mIsDone = itemView.findViewById(R.id.isDone);
         }
     }
 }

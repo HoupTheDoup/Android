@@ -2,7 +2,7 @@ package com.example.stefantodo.Models;
 
 public class ToDoModel extends TaskId{
     private String task , due;
-    private int status;
+    private int status, isDone;
 
     public String getTask() {
         return task;
@@ -15,4 +15,10 @@ public class ToDoModel extends TaskId{
     public int getStatus() {
         return status;
     }
+
+    public int getIsDone() {
+        return isDone;
+    }
+
+
 }

@@ -18,22 +18,18 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-           >
+            android:layout_height="match_parent">
 
             <com.google.android.material.checkbox.MaterialCheckBox
                 android:id="@+id/mcheckbox"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_width="268dp"
+                android:layout_height="37dp"
+                android:button="@drawable/custom_checkbox"
                 android:buttonTint="@color/purple_200"
+                android:clickable="true"
                 android:paddingStart="10dp"
                 android:text="This is task 1"
-                android:clickable="true"
-                android:button="@drawable/custom_checkbox"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/due_date_tv"
@@ -44,6 +40,16 @@
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/mcheckbox" />
+
+            <CheckBox
+                android:id="@+id/isDone"
+                android:layout_width="wrap_content"
+                android:layout_height="54dp"
+                android:button="@drawable/custom_isdone_checkbox"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
